@@ -1,0 +1,41 @@
+{
+    "manifest_version": 2,
+    "name": "firefox-scripts-extension",
+    "version": "0.0.0",
+    "description": "Firefox extension to preload additional scripts by user setup and config.",
+    "homepage_url": "https://github.com/setmy-info/firefox-scripts-extension",
+    "icons": {
+        "32": "src/main/extension/images/icons/borderify/borderify-32.png",
+        "48": "src/main/extension/images/icons/borderify/borderify-48.png",
+        "96": "src/main/extension/images/icons/borderify/borderify-96.png"
+    },
+    "permissions": [
+        "activeTab"
+    ],
+    "content_scripts": [
+        {
+            "matches": [
+                "*://setmy.info/*"
+            ],
+            "js": [
+                "src/main/extension/js/borderify/border.js",
+                "src/main/extension/js/borderify/log.js"
+            ]
+        }
+    ],
+    "browser_action": {
+        "default_title": "Browser Action Title",
+        "default_icon": "src/main/extension/images/icons/borderify/borderify-32.png",
+        "default_popup": "src/main/extension/html/browserAction/index.html"
+    },
+    "web_accessible_resources": [
+        "src/main/extension/images/icons/borderify/borderify-32.png",
+        "src/main/extension/images/icons/borderify/borderify-48.png",
+        "src/main/extension/images/icons/borderify/borderify-96.png"
+    ],
+    "browser_specific_settings": {
+        "gecko": {
+            "id": "info@setmy.info"
+        }
+    }
+}
