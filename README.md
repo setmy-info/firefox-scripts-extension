@@ -1,5 +1,7 @@
 # firefox-scripts-extension
 
+Firefox's extension for loading additional scripts based on user setup and configuration.
+
 UUID
 
     b668575a-c64d-42a2-9d35-165172400475
