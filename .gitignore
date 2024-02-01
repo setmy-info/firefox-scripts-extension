@@ -130,3 +130,5 @@ dist
 .pnp.*
 /.idea/
 /web-ext-artifacts/
+/server-emulator/.venv/
+server-emulator/__pycache__/

@@ -4,6 +4,9 @@
     "version": "0.1.0",
     "description": "Firefox's extension for loading additional scripts based on user setup and configuration.",
     "homepage_url": "https://github.com/setmy-info/firefox-scripts-extension",
+    "developer": {
+        "name": "Imre Tabur"
+    },
     "icons": {
         "32": "src/main/extension/images/icons/icon-32.png",
         "48": "src/main/extension/images/icons/icon-48.png",
@@ -14,12 +17,17 @@
         "storage"
     ],
     "host_permissions": [
-        "*://setmy-info.github.io/*"
+        "<all_urls>"
     ],
+    "background": {
+        "scripts": [
+            "src/main/extension/js/background/index.js"
+        ]
+    },
     "content_scripts": [
         {
             "matches": [
-                "*://setmy-info.github.io/*"
+                "<all_urls>"
             ],
             "js": [
                 "src/main/extension/js/loader/index.js"
@@ -27,8 +35,9 @@
         }
     ],
     "action": {
-        "default_title": "Browser Action Title",
-        "default_icon": "src/main/extension/images/icons/icon-32.png"
+        "default_title": "Script loader",
+        "default_icon": "src/main/extension/images/icons/icon-32.png",
+        "default_area": "navbar"
     },
     "options_ui": {
         "page": "src/main/extension/html/optionPage/index.html"
