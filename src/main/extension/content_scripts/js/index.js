@@ -14,6 +14,7 @@ function smiInitMessageListener() {
 function main() {
     let result = smiTextSearchService.parseAllTexts();
     console.log(result);
+    smiMessageService.send({texts: result});
 }
 
 smiExtensionInit();
