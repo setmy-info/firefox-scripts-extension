@@ -27,6 +27,8 @@
                 "<all_urls>"
             ],
             "js": [
+                "src/main/extension/content_scripts/js/textSearchService.js",
+                "src/main/extension/content_scripts/js/messageService.js",
                 "src/main/extension/content_scripts/js/index.js"
             ],
             "css": [

@@ -1,27 +1,29 @@
-const extensionStorage = browser.storage.local;
-const keyName = "firefoxScriptExtensionValue";
-
-document.addEventListener("DOMContentLoaded", function () {
-    document.getElementById("saveButton").addEventListener("click", function (event) {
-        event.preventDefault();
-        saveValue(document.getElementById(keyName).value);
+function init() {
+    browser.runtime.onMessage.addListener(function (message) {
+        console.log("Received message from content script:", message);
     });
-    loadValue();
-});
+    document.addEventListener("DOMContentLoaded", function () {
+        document.getElementById("saveButton").addEventListener("click", function (event) {
+            event.preventDefault();
+            saveValue(document.getElementById(SERVER_URL_KEY).value);
+        });
+        loadValue();
+    });
+}
 
 function saveValue(value) {
-    let obj = {};
-    obj[keyName] = {value: value};
-    extensionStorage.set(obj);
+    return optionsStorageService.set(value);
 }
 
 function loadValue() {
-    extensionStorage.get(keyName)
+    optionsStorageService.get()
         .then(function (obj) {
-            if (!!obj[keyName]) {
-                document.getElementById(keyName).value = obj[keyName].value;
-            }
-        }, function (error) {
-            console.error(`Error: ${error}`);
+            console.log("Obj: ", obj)
+            document.getElementById(SERVER_URL_KEY).value = obj;
+        })
+        .catch(function (error) {
+            console.log("Error: ", error)
         });
 }
+
+init();

@@ -1,17 +1,24 @@
-<!doctype html>
+<!DOCTYPE html>
 
-<html lang="en">
+<html>
 <head>
-    <meta charset="utf-8"/>
+    <title>Option page</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../css/index.css"/>
 </head>
 
 <body>
-<form>
-    <label for="firefoxScriptExtensionValue">Value to save</label>
-    <input type="text" id="firefoxScriptExtensionValue" name="color"/>
-    <button type="submit" id="saveButton">Save</button>
-</form>
+<div class="options_ui">
+    <form>
+        <label for="serverUrl">Server URL: </label>
+        <input type="text" id="serverUrl" name="color"/>
+        <button type="submit" id="saveButton">Save</button>
+    </form>
+</div>
+<script src="../js/constants.js"></script>
+<script src="../js/storageService.js"></script>
+<script src="../js/optionsStorageService.js"></script>
 <script src="../js/index.js"></script>
 </body>
 </html>
